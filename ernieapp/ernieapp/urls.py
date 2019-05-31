@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ../challenge/models import Device, Task
+from ../challenge/views import views
 
 urlpatterns = [
+    path('', views.index, name="index"),
+    path('TasksInDevice/<slug:UUID>', views.TasksInDevice, name="TasksInDeviceByUUID"),
+    path('TaskResult/<int:ID>', views.notifyTaskResult, name="ResultOfTaskByUUIDAndTaskID"),
+    path('TaskStarted/<int: ID>', views.notifyNewTask, name="NotificationOfNewStartedTask"),
     path('admin/', admin.site.urls),
 ]
