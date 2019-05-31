@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Movie, Comment
+from .models import Device, Task
 import requests as req
 # Create your views here.
 
