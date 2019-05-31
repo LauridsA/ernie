@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from /challenge/models import Device, Task
-from /challenge/views import views
+from ~/challenge/models import Device, Task
+from ~/challenge/views import views
 
 urlpatterns = [
     path('', views.index, name="index"),
