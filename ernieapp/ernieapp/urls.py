@@ -18,7 +18,7 @@ sys.path.append('/challenge')
 from django.contrib import admin
 from django.urls import path
 from challenge.models import Device, Task
-from challenge.views import * as views
+from challenge.views import TasksInDevice, notifyNewTask, notifyTaskResult
 
 urlpatterns = [
     path('', views.index, name="index"),
