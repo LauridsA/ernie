@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 import sys
-sys.path.append('/challenge')
+sys.path.append('/challenge/')
 from django.contrib import admin
 from django.urls import path
 from models import Device, Task
