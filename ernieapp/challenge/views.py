@@ -7,7 +7,6 @@ import requests as req
 def index(request):
 	return HttpResponse("coolindexpage")
 
-
 def TasksInDevice(request, deviceID):
 	return HttpResponse("TasksInDevice")
 

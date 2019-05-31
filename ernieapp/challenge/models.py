@@ -1,27 +1,20 @@
 from django.db import models
-
+from enum import Enum
 # Create your models here.
 
-class Task(models.Model):
-    ID = models.IntegerField(max_length=200, primary_key=True)
-    #constants
+class States(Enum):
     SUCCESS = 1
     FAILED = 2
     TIMEOUT = 3
     IN_PROGRESS = 4
     TO_DO = 5
-    state_choices = [
-        (SUCCESS, 1),
-        (FAILED, 2),
-        (TIMEOUT, 3),
-        (IN_PROGRESS, 4),
-        (TO_DO, 5)
-    ]
-    #state
+
+class Task(models.Model):
+    ID = models.IntegerField(max_length=200, primary_key=True)
     state = models.IntegerField(
-        max_length = 1,
-        choices=state_choices,
-        default=TO_DO
+        max_length = 5,
+        choices=[(tag, tag.value) for tag in States],
+        default=States.TO_DO
     ) 
     def __str__(self):
     	return "ID: " + str(self.ID) + " with state: " + str(self.state)
