@@ -24,7 +24,7 @@ class Task(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
     def __str__(self):
-    	return "ID: " + str(self.ID) + " with state: xxx"
+    	return "ID: " + str(self.ID) + " with state: yyy"
 
 class Device(models.Model):
     UUID = models.CharField(max_length=200, primary_key=True)
