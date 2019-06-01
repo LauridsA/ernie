@@ -10,18 +10,18 @@ class Customer(models.Model):
     	return "email: " + self.email + " password (in clear text, of course): " + str(self.password) + str(self.rank)
 
 class States(Enum):
-    SUCCESS = 1
-    FAILED = 2
-    TIMEOUT = 3
-    IN_PROGRESS = 4
-    TO_DO = 5
+    SUCCESS = "SUCCESS"
+    FAILED = "FAILED"
+    TIMEOUT = "TIMEOUT"
+    IN_PROGRESS = "IN_PROGRESS"
+    TO_DO = "TO_DO"
 
 class Task(models.Model):
     ID = models.IntegerField(max_length=200, primary_key=True)
-    state = models.IntegerField(
-        max_length = 6,
+    state = models.CharField(
+        max_length = 5,
         choices=[(tag, tag.value) for tag in States],
-        default=States.TO_DO
+        default=States.TO_DO.value
     ) 
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
