@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='state',
-            field=models.IntegerField(choices=[(challenge.models.StatesClass('SUCCESS'), 'SUCCESS'), (challenge.models.StatesClass('FAILED'), 'FAILED'), (challenge.models.StatesClass('TIMEOUT'), 'TIMEOUT'), (challenge.models.StatesClass('IN_PROGRESS'), 'IN_PROGRESS'), (challenge.models.StatesClass('TO_DO'), 'TO_DO')], default='TO_DO', max_length=200),
+            field=models.CharField(choices=[(challenge.models.StatesClass('SUCCESS'), 'SUCCESS'), (challenge.models.StatesClass('FAILED'), 'FAILED'), (challenge.models.StatesClass('TIMEOUT'), 'TIMEOUT'), (challenge.models.StatesClass('IN_PROGRESS'), 'IN_PROGRESS'), (challenge.models.StatesClass('TO_DO'), 'TO_DO')], default='TO_DO', max_length=200),
         ),
     ]
