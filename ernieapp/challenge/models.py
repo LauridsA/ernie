@@ -15,7 +15,7 @@ class StatesClass (Enum):
     TO_DO = "TO_DO"
 
 class Task(models.Model):
-    ID = models.IntegerField(max_length=200, primary_key=True)
+    ID = models.CharField(max_length=200, primary_key=True)
     state = models.IntegerField(
         max_length = 200,
         choices=[(tag, tag.value) for tag in StatesClass],
