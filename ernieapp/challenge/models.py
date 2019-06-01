@@ -16,9 +16,9 @@ class StatesClass (Enum):
 
 class Task(models.Model):
     ID = models.CharField(max_length=200, primary_key=True)
-    state = models.IntegerField(
+    state = models.CharField(
         max_length = 200,
-        choices=[(tag, tag.value) for tag in StatesClass],
+        choices=[(tag.name, tag.value) for tag in StatesClass],
         default=StatesClass.TO_DO.value
     )
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
