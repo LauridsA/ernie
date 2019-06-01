@@ -7,7 +7,7 @@ import requests as req
 def index(request):
 	return HttpResponse("coolindexpage")
 
-def TasksInDevice(request, deviceID):
+def TasksInDevice(request, UUID):
 	return HttpResponse("TasksInDevice")
 
 def notifyNewTask(request, deviceID):
