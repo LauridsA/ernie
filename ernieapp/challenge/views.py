@@ -5,7 +5,9 @@ import requests as req
 # Create your views here.
 
 def index(request):
-	return HttpResponse("coolindexpage")
+    deviceList = Device.objects.all()
+	return HttpResponse(deviceList)
+
 
 def TasksInDevice(request, UUID):
 	return HttpResponse("TasksInDevice")
