@@ -11,7 +11,8 @@ def index(request):
 
 def TasksInDevice(request, UUID):
     dev = Device.objects.filter(UUID=UUID)
-    return HttpResponse("TasksInDevice")
+    
+    return HttpResponse(dev)
 
 def notifyNewTask(request, ID):
 
