@@ -19,7 +19,7 @@ class States(Enum):
 class Task(models.Model):
     ID = models.IntegerField(max_length=200, primary_key=True)
     state = models.IntegerField(
-        max_length = 5,
+        max_length = 6,
         choices=[(tag, tag.value) for tag in States],
         default=States.TO_DO
     ) 
@@ -35,4 +35,4 @@ class Device(models.Model):
     def __str__(self):
     	return "ID: " + str(self.UUID)
     def execute(self):
-        return ""
+        return "execute function invoked"
