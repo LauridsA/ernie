@@ -10,10 +10,10 @@ def index(request):
 def TasksInDevice(request, UUID):
 	return HttpResponse("TasksInDevice")
 
-def notifyNewTask(request, deviceID):
+def notifyNewTask(request, ID):
 
     return HttpResponse("what")
 
-def notifyTaskResult(request, deviceID):
+def notifyTaskResult(request, ID):
 
     return HttpResponse("also what")
