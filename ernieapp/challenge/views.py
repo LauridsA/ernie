@@ -5,7 +5,7 @@ import requests as req
 # Create your views here.
 
 def index(request):
-    deviceList = Device.objects.all()
+	deviceList = Device.objects.all()
 	return HttpResponse(deviceList)
 
 
