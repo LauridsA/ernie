@@ -4,10 +4,8 @@ from enum import Enum
 class Customer(models.Model):
     email = models.CharField(max_length=200, primary_key=True)
     password = models.CharField(max_length=200)
-    #LIST DEVICES
-    #LIST TASKS
     def __str__(self):
-    	return "email: " + self.email + " password (in clear text, of course): " + str(self.password) + str(self.rank)
+    	return "email: " + self.email + " password (in clear text, of course): " + str(self.password)
 
 class States(Enum):
     SUCCESS = "SUCCESS"
@@ -26,7 +24,7 @@ class Task(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
     def __str__(self):
-    	return "ID: " + str(self.ID) + " with state: " + str(self.state)
+    	return "ID: " + str(self.ID) + " with state: xxx"
 
 class Device(models.Model):
     UUID = models.CharField(max_length=200, primary_key=True)
