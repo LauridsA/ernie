@@ -6,10 +6,10 @@ import requests as req
 
 def index(request):
     #triple query. unoptimized
-    customerList = Customer.objects.all().select_related()
-	#deviceList = Device.objects.all()
+    #customerList = Customer.objects.all().select_related('Device') #didn't do the thing
+	deviceList = Device.objects.all().select_related('customer')
     #return custom html page
-    return HttpResponse(customerList)
+    return HttpResponse(deviceList)
 
 
 def TasksInDevice(request, UUID):
