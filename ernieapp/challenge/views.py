@@ -10,13 +10,15 @@ def index(request):
 
 
 def TasksInDevice(request, UUID):
+    # get tasks based on customer and list where UUID = customer.device.UUID
     tasks = Task.objects.filter(customer__device__UUID=UUID)
-    # get tasks based on customer and list where customer.id == device.customer.id
     return HttpResponse(tasks)
 
 def notifyNewTask(request, ID):
-
-    return HttpResponse("what")
+    # get the related task/device combination for prettyness
+    #do the thing here
+    dev = Device.objects.filter(customer__task__ID=ID)
+    return HttpResponse("Task with ID: " + ID + " has begun.")
 
 def notifyTaskResult(request, ID):
 
