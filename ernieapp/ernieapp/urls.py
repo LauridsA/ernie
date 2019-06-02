@@ -23,7 +23,7 @@ from challenge.views import TasksInDevice, notifyNewTask, notifyTaskResult, inde
 urlpatterns = [
     path('', index, name="index"),
     path('TasksInDevice/<slug:UUID>', TasksInDevice, name="TasksInDeviceByUUID"),
-    path('TaskResult/<int:ID>', notifyTaskResult, name="ResultOfTaskByUUIDAndTaskID"),
-    path('TaskStarted/<int: ID>', notifyNewTask, name="NotificationOfNewStartedTask"),
+    path('TaskResult/<slug:ID>', notifyTaskResult, name="ResultOfTaskByUUIDAndTaskID"),
+    path('TaskStarted/<slug: ID>', notifyNewTask, name="NotificationOfNewStartedTask"),
     path('admin/', admin.site.urls),
 ]
