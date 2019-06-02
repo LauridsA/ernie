@@ -7,7 +7,7 @@ import requests as req
 def index(request):
     #triple query. unoptimized
     #customerList = Customer.objects.all().select_related('Device') #didn't do the thing
-	deviceList = Device.objects.all().select_related('customer')
+    deviceList = Device.objects.all().select_related('customer')
     #return custom html page
     return HttpResponse(deviceList)
 
