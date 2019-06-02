@@ -16,10 +16,9 @@ def TasksInDevice(request, UUID):
 
 def notifyNewTask(request, ID):
     # get the related task/device combination for prettyness
-    #do the thing here
     dev = Device.objects.filter(customer__task__ID=ID)
-    return HttpResponse("Task with ID: " + ID + " has begun.")
+    return HttpResponse("Task with ID: " + ID + " has begun. It was picked up by device with ID: " + dev.UUID)
 
 def notifyTaskResult(request, ID):
-
-    return HttpResponse("also what")
+    task = Task.objects.get(ID=ID)
+    return HttpResponse("Task with ID: " + ID + " changed state to: " + task.state)
