@@ -5,9 +5,11 @@ import requests as req
 # Create your views here.
 
 def index(request):
-	deviceList = Device.objects.all().select_related()
+    #triple query. unoptimized
+    customerList = Customer.objects.all().select_related()
+	#deviceList = Device.objects.all()
     #return custom html page
-	return HttpResponse(deviceList)
+    return HttpResponse(customerList)
 
 
 def TasksInDevice(request, UUID):
