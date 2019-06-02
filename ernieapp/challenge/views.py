@@ -5,7 +5,8 @@ import requests as req
 # Create your views here.
 
 def index(request):
-	deviceList = Device.objects.all()
+	deviceList = Device.objects.all().select_related()
+    #return custom html page
 	return HttpResponse(deviceList)
 
 
