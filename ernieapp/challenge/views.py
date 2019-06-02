@@ -10,7 +10,7 @@ def index(request):
 
 
 def TasksInDevice(request, UUID):
-    tasks = Task.objects.filter(customer__device__id=UUID)
+    tasks = Task.objects.filter(customer__device__UUID=UUID)
     # get tasks based on customer and list where customer.id == device.customer.id
     return HttpResponse(tasks)
 
