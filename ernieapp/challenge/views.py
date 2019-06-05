@@ -5,15 +5,19 @@ import requests as req
 # Create your views here.
 
 def index(request):
-    #customerList = Customer.objects.all().select_related('Device') #didn't do the thing
     #deviceList = Device.objects.filter(Customer=)
-    return HttpResponse("Endpoints are: TaskResult/ID, TasksInDevice/UUID, TaskStarted/ID")
+    return HttpResponse("Endpoints are: /TaskResult/ID, /TasksInDevice/UUID, /TaskStarted/ID, /RunTask/UUID")
 
 
 def TasksInDevice(request, UUID):
     # get tasks based on customer and list where UUID = customer.device.UUID
     tasks = Task.objects.filter(customer__device__UUID=UUID)
     return HttpResponse(tasks)
+
+def RunTask(request, UUID):
+    device = Device.objects.get(UUID=UUID)
+    device.execute()
+    return HttpResponse(device)
 
 def notifyNewTask(request, ID):
     # get the related task/device combination for prettyness

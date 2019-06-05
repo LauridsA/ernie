@@ -34,13 +34,13 @@ class Device(models.Model):
 
     def __str__(self):
     	return "ID: " + str(self.UUID)
-    def execute(self): #damn this thing is broken -- needs to be called on index? 
+    def execute(self): #damn this thing is broken -- needs to be called on index? ARGS?
         
         taskList = Task.objects.filter(Customer__id=self.customer__id).filter(customer__task__state=StatesClass.TO_DO)
         if not taskList:
             #call endpoint to notify start
             randomNum = random.randint(0,2) # simulate possibility of timeout (50-50 chance)
-            time.sleep(120) #simulate processing time 
+            time.sleep(120) #simulate processing time #set to RUNNING? Need seperate functions
             task = taskList[0]
             if(randomNum > 1): #failed
                 task.state = StatesClass.FAILED

@@ -25,5 +25,6 @@ urlpatterns = [
     path('TasksInDevice/<slug:UUID>', TasksInDevice, name="TasksInDeviceByUUID"),
     path('TaskResult/<slug:ID>', notifyTaskResult, name="ResultOfTaskByUUIDAndTaskID"),
     path('TaskStarted/<slug: ID>', notifyNewTask, name="NotificationOfNewStartedTask"),
+    path('RunTask/<slug: UUID>', notifyNewTask, name="ExecuteTask"),
     path('admin/', admin.site.urls),
 ]
