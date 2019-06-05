@@ -7,7 +7,7 @@ import requests as req
 def index(request):
     #customerList = Customer.objects.all().select_related('Device') #didn't do the thing
     #deviceList = Device.objects.filter(Customer=)
-    return HttpResponse("Endpoints are: TaskResult/<ID>, TasksInDevice/<UUID>, TaskStarted/<ID>")
+    return HttpResponse("Endpoints are: TaskResult/ID, TasksInDevice/UUID, TaskStarted/ID")
 
 
 def TasksInDevice(request, UUID):
