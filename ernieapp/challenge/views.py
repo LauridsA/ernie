@@ -6,7 +6,7 @@ import requests as req
 
 def index(request):
     #deviceList = Device.objects.filter(Customer=)
-    return HttpResponse("Endpoints are: /TaskResult/ID, /TasksInDevice/UUID, /TaskStarted/ID, /RunTask/UUID")
+    return HttpResponse("Endpoints are: /TaskResult/ID, /TasksInDevice/UUID, /TaskStarted/ID, /RunTaskInDevice/UUID")
 
 
 def TasksInDevice(request, UUID):
@@ -14,7 +14,7 @@ def TasksInDevice(request, UUID):
     tasks = Task.objects.filter(customer__device__UUID=UUID)
     return HttpResponse(tasks)
 
-def RunTask(request, UUID):
+def RunTaskInDevice(request, UUID):
     device = Device.objects.get(UUID=UUID)
     device.execute()
     return HttpResponse(device)
