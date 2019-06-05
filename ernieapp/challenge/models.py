@@ -1,6 +1,6 @@
 from django.db import models
 from enum import Enum
-import Random
+import random
 import time
 # Create your models here.
 class Customer(models.Model):
@@ -39,7 +39,7 @@ class Device(models.Model):
         taskList = Task.objects.filter(Customer__id=self.customer__id).filter(customer__task__state=StatesClass.TO_DO)
         if not taskList:
             #call endpoint to notify start
-            randomNum = Random.randint(0,2) # simulate possibility of timeout (50-50 chance)
+            randomNum = random.randint(0,2) # simulate possibility of timeout (50-50 chance)
             time.sleep(120) #simulate processing time 
             task = taskList[0]
             if(randomNum > 1): #failed
