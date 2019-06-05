@@ -5,11 +5,9 @@ import requests as req
 # Create your views here.
 
 def index(request):
-    #triple query. unoptimized
     #customerList = Customer.objects.all().select_related('Device') #didn't do the thing
-    deviceList = Device.objects.all().select_related('customer')
-    #return custom html page
-    return HttpResponse(deviceList)
+    #deviceList = Device.objects.filter(Customer=)
+    return HttpResponse("Endpoints are: TaskResult/<ID>, TasksInDevice/<UUID>, TaskStarted/<ID>")
 
 
 def TasksInDevice(request, UUID):
