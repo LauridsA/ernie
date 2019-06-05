@@ -18,13 +18,13 @@ sys.path.append('/challenge')
 from django.contrib import admin
 from django.urls import path
 from challenge.models import Device, Task
-from challenge.views import TasksInDevice, notifyNewTask, notifyTaskResult, index 
+from challenge.views import TasksInDevice, notifyNewTask, notifyTaskResult, index, RunTask
 
 urlpatterns = [
     path('', index, name="index"),
     path('TasksInDevice/<slug:UUID>', TasksInDevice, name="TasksInDeviceByUUID"),
     path('TaskResult/<slug:ID>', notifyTaskResult, name="ResultOfTaskByUUIDAndTaskID"),
     path('TaskStarted/<slug: ID>', notifyNewTask, name="NotificationOfNewStartedTask"),
-    path('RunTask/<slug: UUID>', notifyNewTask, name="ExecuteTask"),
+    path('RunTask/<slug: UUID>', RunTask, name="ExecuteTask"),
     path('admin/', admin.site.urls),
 ]
