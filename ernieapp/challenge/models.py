@@ -36,7 +36,7 @@ class Device(models.Model):
     def __str__(self):
     	return "ID: " + str(self.UUID)
     def execute(self):
-        time.sleep(120) #simulate processing time
+        time.sleep(10) #simulate processing time
             
         
         
